@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoidVC Online</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="online-landing">
+            <h1>VoidVC Online</h1>
+            <p>Join public rooms or host your own</p>
+            <div class="mode-buttons">
+                <button id="host-online-btn" class="mode-btn">Host Public Room</button>
+                <button id="browse-rooms-btn" class="mode-btn">Browse Rooms</button>
+                <button id="admin-login-btn" class="mode-btn">Admin Login</button>
+                <button id="back-to-main-online" class="mode-btn">Back to Main</button>
+            </div>
+        </div>
+        
+        <div id="create-online-room" class="hidden">
+            <h2>Create Public Room</h2>
+            <input type="text" id="room-name-input" placeholder="Room Name" maxlength="30">
+            <p>Select maximum participants:</p>
+            <select id="online-participant-count">
+                <option value="2">2 people</option>
+                <option value="4">4 people</option>
+                <option value="6">6 people</option>
+                <option value="8">8 people</option>
+            </select>
+            <button id="create-online-room-btn">Create & Start Room</button>
+            <button id="back-from-create-online">Back</button>
+        </div>
+        
+        <div id="admin-login" class="hidden">
+            <h2>Admin Login</h2>
+            <p class="admin-note">This is only for Void Network!</p>
+            <input type="email" id="admin-email" placeholder="Email" required>
+            <input type="password" id="admin-password" placeholder="Password" required>
+            <button id="admin-login-submit">Login</button>
+            <button id="back-from-admin-login">Back</button>
+        </div>
+        
+        <div id="rooms-list" class="hidden">
+            <h2>Available Rooms</h2>
+            <div id="rooms-container">
+                <div class="loading">Loading rooms...</div>
+            </div>
+            <button id="refresh-rooms-btn">Refresh</button>
+            <button id="back-from-rooms">Back</button>
+        </div>
+        
+        <div id="online-chat-room" class="hidden">
+            <h2 id="online-room-title">Voice Chat Room</h2>
+            <div id="online-participants"></div>
+            <div class="controls">
+                <button id="online-mute-btn">Mute</button>
+                <button id="online-leave-btn">Leave Room</button>
+            </div>
+        </div>
+        
+        <!-- Notification overlay -->
+        <div id="notification" class="notification hidden"></div>
+    </div>
+
+    <!-- Audio elements container -->
+    <div id="audio-container" style="display: none;"></div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="online.js"></script>
+</body>
+</html>
