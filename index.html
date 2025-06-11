@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoidVC</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="landing-page">
+            <h1>VoidVC</h1>
+            <p>Choose your chat mode</p>
+            <div class="mode-buttons">
+                <button id="private-mode-btn" class="mode-btn">Private Mode</button>
+                <button id="online-mode-btn" class="mode-btn">Online Mode</button>
+            </div>
+        </div>
+        
+        <div id="private-mode" class="hidden">
+            <h2>Private Voice Chat</h2>
+            <p>Create a private room with a code</p>
+            <button id="host-btn">Host a Chat</button>
+            <button id="join-btn">Join a Chat</button>
+            <button id="back-to-main-btn">Back</button>
+        </div>
+        
+        <div id="host-page" class="hidden">
+            <h2>Host a Voice Chat</h2>
+            <p>Select number of participants:</p>
+            <select id="participant-count">
+                <option value="1">1 person</option>
+                <option value="2">2 people</option>
+                <option value="3">3 people</option>
+                <option value="4">4 people</option>
+            </select>
+            <button id="create-room-btn">Create Room</button>
+            <button id="back-from-host-btn">Back</button>
+        </div>
+        
+        <div id="room-created" class="hidden">
+            <h2>Room Created!</h2>
+            <p>Share this code with others:</p>
+            <div id="room-code" class="code-display"></div>
+            <p id="participants-joined">Participants joined: 0</p>
+            <button id="start-chat-btn" disabled>Start Chat</button>
+            <button id="back-from-room-btn">Back</button>
+        </div>
+        
+        <div id="join-page" class="hidden">
+            <h2>Join a Voice Chat</h2>
+            <p>Enter room code:</p>
+            <input type="text" id="code-input" placeholder="Enter code...">
+            <button id="join-room-btn">Join</button>
+            <button id="back-from-join-btn">Back</button>
+        </div>
+        
+        <div id="chat-room" class="hidden">
+            <h2>Voice Chat Room</h2>
+            <div id="participants"></div>
+            <div class="controls">
+                <button id="mute-btn">Mute</button>
+                <button id="leave-btn">Leave Chat</button>
+            </div>
+        </div>
+        
+        <!-- Notification overlay -->
+        <div id="notification" class="notification hidden"></div>
+    </div>
+
+    <!-- Audio elements container -->
+    <div id="audio-container" style="display: none;"></div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
